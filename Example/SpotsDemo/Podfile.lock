@@ -1,0 +1,27 @@
+PODS:
+  - Cache (5.3.0)
+  - Spots (7.6.0):
+    - Cache
+
+DEPENDENCIES:
+  - Cache (from `https://github.com/systembugtj/Cache.git`)
+  - Spots (from `../../`)
+
+EXTERNAL SOURCES:
+  Cache:
+    :git: https://github.com/systembugtj/Cache.git
+  Spots:
+    :path: "../../"
+
+CHECKOUT OPTIONS:
+  Cache:
+    :commit: d2fb0c1d69b5e2d845b7fe1bcef3a9a70fd52341
+    :git: https://github.com/systembugtj/Cache.git
+
+SPEC CHECKSUMS:
+  Cache: b3f230a4e2e30e13b52863eb3539794fcc5e1995
+  Spots: 06e6718ced4b2bdcc84be3c08c5c4c15842dbdc6
+
+PODFILE CHECKSUM: 9fd986cf80fae1be614d4b95675d0d473b7dc682
+
+COCOAPODS: 1.7.5

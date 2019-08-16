@@ -2,15 +2,15 @@ import UIKit
 
 public class ListWrapper: UITableViewCell, Wrappable, Cell {
 
-  weak public var wrappedView: View?
+    weak public var wrappedView: View?
 
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: .default, reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
 
-    backgroundColor = .clear
-    selectedBackgroundView = UIView()
-    selectionStyle = .none
-  }
+        backgroundColor = .clear
+        selectedBackgroundView = UIView()
+        selectionStyle = .none
+    }
 
   required public init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")

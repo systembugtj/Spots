@@ -40,7 +40,7 @@ open class SpotsController: UIViewController, SpotsProtocol, ComponentFocusDeleg
   }
 
   /// A static closure to configure SpotsScrollView.
-  open static var configure: ((_ container: SpotsScrollView) -> Void)?
+    public static var configure: ((_ container: SpotsScrollView) -> Void)?
 
   /// Initial content offset for Controller, defaults to UIEdgeInsetsZero.
   open fileprivate(set) var initialInset: UIEdgeInsets = UIEdgeInsets.zero
@@ -169,10 +169,10 @@ open class SpotsController: UIViewController, SpotsProtocol, ComponentFocusDeleg
   /// - returns: An initialized controller with a cache.
   public convenience init(cacheKey: String, configuration: Configuration = .shared) {
     let stateCache = StateCache(key: cacheKey)
-    let modelsDictionary: [String: [ComponentModel]] = stateCache.load() ?? [:]
+    let modelsDictionary: ComponentCache = stateCache.load() ?? ComponentCache()
 
     self.init(
-      components: Parser.parseComponents(modelsDictionary: modelsDictionary, configuration: configuration),
+      components: Parser.parseComponents(modelsDictionary: modelsDictionary.item, configuration: configuration),
       configuration: configuration
     )
     self.stateCache = stateCache

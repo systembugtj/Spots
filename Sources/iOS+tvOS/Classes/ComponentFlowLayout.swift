@@ -401,7 +401,7 @@ open class ComponentFlowLayout: UICollectionViewFlowLayout {
                                                                 collectionView: collectionView,
                                                                 delegate: delegate)
       let point = CGPoint(x: targetContentOffset.x, y: collectionView.contentOffset.y)
-      let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowAnimatedContent, .allowUserInteraction]
+      let options: UIView.AnimationOptions = [.beginFromCurrentState, .allowAnimatedContent, .allowUserInteraction]
       UIView.animate(withDuration: 0.25, delay: 0, options: options, animations: {
         collectionView.contentOffset = point
         // This is called in order to invoke the delegate methods attached

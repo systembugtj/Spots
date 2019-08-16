@@ -5,7 +5,7 @@ import UIKit
 public class Component: NSObject, ComponentHorizontallyScrollable {
   /// A configuration closure that can be used to pinpoint configuration of
   /// views used inside of the component.
-  open static var configure: ((Component) -> Void)?
+    public static var configure: ((Component) -> Void)?
   /// A focus delegate that returns which component is focused.
   weak public var focusDelegate: ComponentFocusDelegate?
   #if os(tvOS)
@@ -176,7 +176,8 @@ public class Component: NSObject, ComponentHorizontallyScrollable {
   /// - Parameter cacheKey: The unique cache key that should be used for storing and restoring the component.
   public convenience init(cacheKey: String, configuration: Configuration = .shared) {
     let stateCache = StateCache(key: cacheKey)
-    self.init(model: stateCache.load() ?? .init(), configuration: configuration)
+    let component = stateCache.load()?.item["component"]
+    self.init(model: component?[0] ?? .init(), configuration: configuration)
     self.stateCache = stateCache
   }
 
@@ -385,7 +386,7 @@ public class Component: NSObject, ComponentHorizontallyScrollable {
     }
 
     if let collectionView = collectionView {
-      let scrollPosition: UICollectionViewScrollPosition
+        let scrollPosition: UICollectionView.ScrollPosition
 
       if model.interaction.scrollDirection == .horizontal {
         scrollPosition = .centeredHorizontally

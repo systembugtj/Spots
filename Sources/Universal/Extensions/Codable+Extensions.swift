@@ -110,12 +110,12 @@ extension KeyedDecodingContainer {
       return dictionary
     }
 
-    guard let decodedData = try? decodeIfPresent(Data.self, forKey: key), let data = decodedData else {
+    guard let decodedData = try? decodeIfPresent(Data.self, forKey: key) else {
       return nil
     }
 
     do {
-      return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+      return try JSONSerialization.jsonObject(with: decodedData, options: [.allowFragments]) as? [String: Any]
     } catch {
       return nil
     }
